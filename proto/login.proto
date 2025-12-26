@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package common;
+
+option go_package = "github.com/lk2023060901/xiaojia-proto-common;common";
+
+// LoginType 定义登录/认证类型
+enum LoginType {
+    // 默认值 (无效)
+    LOGIN_TYPE_NONE = 0;
+
+    // 本地测试登录 (xlsx/config)
+    LOGIN_TYPE_LOCAL = 1;
+
+    // 内部账号密码登录
+    LOGIN_TYPE_INTERNAL = 2;
+
+    // 抖音平台登录
+    LOGIN_TYPE_DOUYIN = 3;
+}
