@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package common;
+
+option go_package = "github.com/lk2023060901/xiaojia-proto-common;common";
+
+// MessageFlags 消息标志位
+enum MessageFlags {
+  MESSAGE_FLAGS_NONE = 0;        // 无标志
+  MESSAGE_FLAGS_COMPRESSED = 1;  // 已压缩
+  MESSAGE_FLAGS_ENCRYPTED = 2;   // 已加密
+}
+
+// MessageHeader 消息头
+message MessageHeader {
+  uint32 op = 1;        // 操作码
+  uint64 seq_id = 2;    // 序列号
+  uint32 size = 3;      // 载荷大小
+  uint32 flags = 4;     // 标志位
+  uint64 timestamp = 5; // 时间戳
+  bytes sign = 6;       // 签名
+}
+
+// Envelope 消息信封
+message Envelope {
+  MessageHeader header = 1;  // 消息头
+  bytes payload = 2;         // 载荷
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package common;
+
+option go_package = "github.com/lk2023060901/xiaojia-proto-common;common";
+
+import "proto/envelope.proto";
+
+// CommonService 通用服务接口
+service CommonService {
+  // Stream 双向流处理
+  rpc Stream(stream Envelope) returns (stream Envelope);
+}
