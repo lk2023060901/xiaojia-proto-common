@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package common;
+
+option go_package = "github.com/lk2023060901/xiaojia-proto-common;common";
+
+// LoginType 定义登录/认证类型
+enum LoginType {
+    // 默认值 (无效)
+    LOGIN_TYPE_NONE = 0;
+
+    // 本地测试登录 (xlsx/config)
+    LOGIN_TYPE_LOCAL = 1;
+
+    // 内部账号密码登录
+    LOGIN_TYPE_INTERNAL = 2;
+
+    // 抖音平台登录
+    LOGIN_TYPE_DOUYIN = 3;
+}
+
+// 认证请求。
+message AuthRequest {
+    // 登录类型。
+    LoginType login_type = 1;
+
+    // 主播在平台侧的 open_id。
+    string anchor_open_id = 2;
+
+    // 由 Douyin Webcast / OpenAPI 下发的直播 token。
+    // 服务端通过 https://webcast.bytedance.com/api/webcastmate/info 等接口
+    // 使用该 token 获取直播间信息并完成环境校验。
+    string token = 3;
+
+    // 设备 / 运行环境的额外元数据（可选）。
+    map<string, string> device_metadata = 4;
+}
