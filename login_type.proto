@@ -15,8 +15,8 @@ enum LoginType {
     // 内部账号密码登录
     LOGIN_TYPE_INTERNAL = 2;
 
-    // 抖音平台登录
-    LOGIN_TYPE_DOUYIN = 3;
+    // 抖音主播客户端登录
+    LOGIN_TYPE_DOUYIN_ANCHOR = 3;
 
     // 抖音小游戏
     LOGIN_TYPE_DOUYIN_MINI_GAME = 4;
